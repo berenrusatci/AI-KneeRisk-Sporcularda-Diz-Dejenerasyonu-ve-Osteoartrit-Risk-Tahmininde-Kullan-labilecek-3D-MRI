@@ -70,15 +70,6 @@ Modelin farklı bileşenlerinin ve donanım sınırlarının performansa etkisin
 | **Ablasyon** | Focal Loss Yok | **%43.20** | Sınıf dengesizliği modelin odağını ciddi ölçüde bozmuştur. |
 | **Hiperparametre** | Batch Size: 8 | **N/A** | M4 Max GPU belleği 3D veri yükü (tensor boyutu) altında sınırlarına ulaşmış ve OOM (Out of Memory) vermiştir. |
 
-## 🎯 Öz-Eleştiri, GAP Analizi ve Gelecek Planları
-
-DenseNet3D özelinde elde edilen ~%53'lük doğrulama başarısı, modelin klinik bir karar destek sistemi olabilmesi için geliştirilmeye ihtiyaç duyduğunu göstermektedir. Bu "performans boşluğunu" (GAP) kapatmak için aşağıdaki iyileştirmeler yol haritasına eklenmiştir:
-
-1.  **Eğitim Süresinin Uzatılması:** 3D veriler için 20 epoch sadece bir "ısınma" (warm-up) evresidir. Kararlı öğrenme için epoch sayısının **100-150** bandına çıkarılması.
-2.  **Attention Mekanizmaları:** 64 kesitlik devasa MR hacimleri içindeki milimetrik anomalilerin kaybolmamasını sağlamak adına mimariye **Attention Gate** bloklarının entegre edilmesi.
-3.  **Öğrenme Hızı Optimizasyonu:** Loss grafiklerindeki dalgalanmaları (zikzakları) stabilize etmek için *Learning Rate Scheduler* kullanımı.
-4.  **Veri Seti Zenginleştirmesi:** 3D uzaydaki varyasyonları daha iyi kapsayabilmek için patolojik örnek çeşitliliğinin artırılması.
-
 ---
 
 *Mevcut durum itibarıyla projenin veri işleme hattı ve teknik altyapısı sağlam bir şekilde kurulmuş olup, model mimarisi ileri düzey geliştirmelere hazır hale getirilmiştir.*
