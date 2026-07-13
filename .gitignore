@@ -20,3 +20,8 @@ env/
 # İşletim sistemine özel gereksiz dosyalar
 .DS_Store
 Thumbs.db
+
+# PyInstaller çıktıları (dağıtım zip'i GitHub Release eki olarak yayımlanır, depoya girmez)
+Akademik_Arastirma_Paketi/dagitim_exe/build/
+Akademik_Arastirma_Paketi/dagitim_exe/dist/
+Akademik_Arastirma_Paketi/dagitim_exe/*.zip

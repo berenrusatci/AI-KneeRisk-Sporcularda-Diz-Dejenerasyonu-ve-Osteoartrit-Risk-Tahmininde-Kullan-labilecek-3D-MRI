@@ -1,0 +1,17 @@
+Diz MR Sınıflandırma — Test Seti Raporu
+Model: best_model_balanced_crop74.pth
+============================================================
+                   precision    recall  f1-score   support
+
+Normal (Sağlıklı)     0.7386    0.7800    0.7588       250
+ Abnormal (Hasta)     0.7027    0.6533    0.6771       199
+
+         accuracy                         0.7238       449
+        macro avg     0.7207    0.7166    0.7179       449
+     weighted avg     0.7227    0.7238    0.7226       449
+
+Accuracy    : 72.38%
+Sensitivity : 65.33%
+Specificity : 78.00%
+ROC-AUC     : 0.7966
+PR-AUC      : 0.7800

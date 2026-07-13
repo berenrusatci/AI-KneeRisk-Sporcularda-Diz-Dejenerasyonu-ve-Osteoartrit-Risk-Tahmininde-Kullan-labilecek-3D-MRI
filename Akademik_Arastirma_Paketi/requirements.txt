@@ -1,0 +1,26 @@
+# ============================================================
+# Diz MR Sınıflandırma — Akademik Araştırma Paketi
+# Python 3.12 ortamı için bağımlılıklar (.venv312 üzerinde doğrulanmıştır)
+# ============================================================
+#
+# NOT (PyTorch / CUDA):
+# torch ve torchvision, CUDA (GPU) destekli sürümlerdir. Standart PyPI'den
+# CPU sürümü kurulur; GPU için resmi PyTorch index'i kullanılır. Bu projede
+# kurulu sürümler: torch 2.12.1 (+cu132), torchvision 0.27.1 (+cu132).
+# GPU kurulumu örneği:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+# (CPU-only için --index-url https://download.pytorch.org/whl/cpu)
+#
+# Aşağıdaki paketler bu paketin scriptleri (değerlendirme, analiz, arayüz)
+# için gereklidir ve doğrudan PyPI'den kurulabilir.
+
+torch>=2.4
+torchvision>=0.19
+numpy>=1.26
+pillow>=10.0
+scikit-learn>=1.4
+scipy>=1.11
+matplotlib>=3.8
+seaborn>=0.13
+pandas>=2.0
+streamlit>=1.30

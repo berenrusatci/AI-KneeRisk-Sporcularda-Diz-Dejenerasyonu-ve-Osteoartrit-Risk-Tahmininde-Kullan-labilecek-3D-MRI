@@ -1,0 +1,5 @@
+﻿Model,Doğruluk,Makro-F1,ROC-AUC,Duyarlılık,Özgüllük
+ConvNeXt-Tiny (Focal+Dengeli+Crop) [ANA],0.7238,0.7179,0.7966,0.6533,0.7800
+"ConvNeXt-Tiny (Focal, önceki)",0.6748,0.6748,0.7613,0.7789,0.5920
+EfficientNet-B0 (CrossEntropy),0.6592,0.6291,0.6997,0.4221,0.8480
+"ResNet50 (Transfer, CrossEntropy)",0.5969,0.5937,0.6585,0.7739,0.4560

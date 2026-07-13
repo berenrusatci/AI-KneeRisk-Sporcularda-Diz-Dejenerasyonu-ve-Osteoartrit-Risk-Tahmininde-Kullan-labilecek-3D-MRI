@@ -1,0 +1,91 @@
+{
+  "dokumante_hiperparametreler": {
+    "mimari": "ConvNeXt-Tiny (ImageNet ön-eğitimli)",
+    "giris": "2.5D — orta 3 kesit, 3 kanal, 224x224",
+    "batch_size": {
+      "deger": 16,
+      "gerekce": "8-12 GB VRAM ile AMP altında dengeli bellek/hız."
+    },
+    "kayip_fonksiyonu": {
+      "deger": "Focal Loss (γ=2.0)",
+      "gerekce": "Kolay örneklerin katkısını azaltıp zor/az örneklenen sınıfa odaklanır; sınıf dengesizliğinde CrossEntropy'den üstündür."
+    },
+    "sinif_agirligi": {
+      "deger": "[1.0, 1.25]",
+      "gerekce": "Abnormal (azınlık) sınıfına ılımlı ağırlık; aşırı ağırlık (ör. 1.6) yanlış-pozitifleri (evham) artırdığından 1.25'e düşürülmüştür."
+    },
+    "transfer_ogrenme": {
+      "deger": "2 fazlı",
+      "faz1": "10 epoch — yalnızca sınıflandırma başı (backbone donuk), AdamW lr=1e-3",
+      "faz2": "≤40 epoch — tam ince ayar (backbone açık), AdamW lr=5e-5"
+    },
+    "optimizer": {
+      "deger": "AdamW",
+      "weight_decay": 0.01
+    },
+    "lr_scheduler": {
+      "deger": "CosineAnnealingLR",
+      "eta_min": 1e-07,
+      "kapsam": "Faz 2"
+    },
+    "erken_durdurma": {
+      "deger": "patience=8 (val loss)",
+      "gerekce": "Overfitting başlamadan en iyi checkpoint korunur."
+    },
+    "duzenlilestirme": {
+      "dropout": 0.5,
+      "augmentation": "RandomHorizontalFlip, RandomAffine(±10°, ötele/ölçekle), ColorJitter, RandomErasing"
+    },
+    "on_isleme": "CenterCrop(280) -> Resize(224) -> Normalize(ImageNet)",
+    "amp": "Otomatik Karışık Hassasiyet (float16) — hız ve VRAM tasarrufu"
+  },
+  "ampirik_tarama": {
+    "ayarlar": {
+      "veri": "tüm train/val seti",
+      "epochs": 60,
+      "yontem": "özellik-önbellekli linear-probe (donuk ConvNeXt omurgası)"
+    },
+    "sonuclar": [
+      {
+        "grup": "Öğrenme Oranı",
+        "etiket": "lr=1e-2",
+        "val_acc": 0.6898876428604126
+      },
+      {
+        "grup": "Öğrenme Oranı",
+        "etiket": "lr=1e-3 (seçilen)",
+        "val_acc": 0.683146059513092
+      },
+      {
+        "grup": "Öğrenme Oranı",
+        "etiket": "lr=1e-4",
+        "val_acc": 0.6561797857284546
+      },
+      {
+        "grup": "Kayıp Fonksiyonu",
+        "etiket": "CrossEntropy",
+        "val_acc": 0.6898876428604126
+      },
+      {
+        "grup": "Kayıp Fonksiyonu",
+        "etiket": "Focal (seçilen)",
+        "val_acc": 0.683146059513092
+      },
+      {
+        "grup": "Sınıf Ağırlığı",
+        "etiket": "[1.0, 1.0]",
+        "val_acc": 0.6921348571777344
+      },
+      {
+        "grup": "Sınıf Ağırlığı",
+        "etiket": "[1.0, 1.25] (seçilen)",
+        "val_acc": 0.683146059513092
+      },
+      {
+        "grup": "Sınıf Ağırlığı",
+        "etiket": "[1.0, 1.6]",
+        "val_acc": 0.6786516904830933
+      }
+    ]
+  }
+}

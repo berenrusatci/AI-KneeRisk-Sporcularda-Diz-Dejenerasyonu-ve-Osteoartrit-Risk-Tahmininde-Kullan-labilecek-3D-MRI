@@ -1,0 +1,30 @@
+{
+  "model": "best_model_balanced_crop74.pth",
+  "split_metrikleri": {
+    "Eğitim (train)": {
+      "n": 2082,
+      "accuracy": 0.8227665706051873,
+      "macro_f1": 0.8206343628996579,
+      "roc_auc": 0.9144397029405741
+    },
+    "Doğrulama (val)": {
+      "n": 445,
+      "accuracy": 0.748314606741573,
+      "macro_f1": 0.7463664861783984,
+      "roc_auc": 0.8260807270345505
+    },
+    "Test": {
+      "n": 449,
+      "accuracy": 0.7238307349665924,
+      "macro_f1": 0.7179190985732815,
+      "roc_auc": 0.796643216080402
+    }
+  },
+  "gap": {
+    "gap_accuracy_train_test": 0.09893583563859487,
+    "gap_accuracy_train_val": 0.0744519638636143,
+    "gap_auc_train_test": 0.11779648686017208,
+    "gap_f1_train_test": 0.10271526432637634
+  },
+  "yorum": "Küçük-orta GAP: hafif overfitting, akademik olarak kabul edilebilir."
+}
