@@ -1,0 +1,24 @@
+{
+  "method": "mean",
+  "k": 0,
+  "merkez_orani": 0.3,
+  "step": 2,
+  "kriter": "en yüksek val ROC-AUC (sızıntısız); merkez bölge = uç kesitleri dışlar",
+  "test_roc": 0.8311155778894473,
+  "val_roc": 0.8299901752087768,
+  "test_metrikleri": {
+    "esik": 0.5,
+    "accuracy": 0.732739420935412,
+    "duyarlilik": 0.6432160804020101,
+    "ozgulluk": 0.804,
+    "ppv_precision_abnormal": 0.7231638418079096,
+    "f1_abnormal": 0.6808510638297872,
+    "macro_f1": 0.7254830031792614,
+    "TN": 201,
+    "FP": 49,
+    "FN": 71,
+    "TP": 128
+  },
+  "temel_test_roc": 0.796643216080402,
+  "temel_test_acc": 0.7238307349665924
+}

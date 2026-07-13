@@ -1,0 +1,31 @@
+{
+  "onerilen_esik": 0.42614486813545227,
+  "kriter": "val duyarlılık >= 0.85",
+  "test_metrikleri": {
+    "esik": 0.42614486813545227,
+    "accuracy": 0.688195991091314,
+    "duyarlilik": 0.8190954773869347,
+    "ozgulluk": 0.584,
+    "ppv_precision_abnormal": 0.6104868913857678,
+    "f1_abnormal": 0.6995708154506438,
+    "macro_f1": 0.687748370688285,
+    "TN": 146,
+    "FP": 104,
+    "FN": 36,
+    "TP": 163
+  },
+  "standart_esik": 0.5,
+  "standart_test_metrikleri": {
+    "esik": 0.5,
+    "accuracy": 0.7238307349665924,
+    "duyarlilik": 0.6532663316582915,
+    "ozgulluk": 0.78,
+    "ppv_precision_abnormal": 0.7027027027027027,
+    "f1_abnormal": 0.6770833333333334,
+    "macro_f1": 0.7179190985732815,
+    "TN": 195,
+    "FP": 55,
+    "FN": 69,
+    "TP": 130
+  }
+}

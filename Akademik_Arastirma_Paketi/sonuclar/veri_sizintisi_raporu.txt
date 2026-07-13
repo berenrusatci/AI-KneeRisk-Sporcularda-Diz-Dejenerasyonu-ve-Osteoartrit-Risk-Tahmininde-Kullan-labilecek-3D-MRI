@@ -1,0 +1,35 @@
+================================================================
+VERİ SIZINTISI (DATA LEAKAGE) KONTROL RAPORU
+================================================================
+[*] train: 2082 hacim
+[*] val  : 445 hacim
+[*] test : 449 hacim
+
+----------------------------------------------------------------
+1) KİMLİK (KLASÖR ADI) BAZLI KESİŞİM
+----------------------------------------------------------------
+    train ∩ val   : TEMİZ ✓
+    train ∩ test  : TEMİZ ✓
+    val   ∩ test  : TEMİZ ✓
+
+----------------------------------------------------------------
+2) İÇERİK (PİKSEL HASH) BAZLI KESİŞİM
+    (temsili kesitler: [0, 16, 32, 48, 63])
+----------------------------------------------------------------
+    [*] Hacim içerik özetleri hesaplanıyor...
+    train ∩ val   : TEMİZ ✓
+    train ∩ test  : TEMİZ ✓
+    val   ∩ test  : TEMİZ ✓
+
+    Split-içi özdeş içerik (bilgi amaçlı):
+        train: 0 tekrarlanan içerik grubu
+        val  : 0 tekrarlanan içerik grubu
+        test : 0 tekrarlanan içerik grubu
+
+================================================================
+SONUÇ
+================================================================
+✓ HİÇBİR VERİ SIZINTISI TESPİT EDİLMEDİ.
+  Train / val / test setleri hem kimlik hem piksel düzeyinde
+  tamamen ayrıktır. Test sonuçları güvenilirdir.
+================================================================

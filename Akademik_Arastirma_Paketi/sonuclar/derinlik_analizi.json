@@ -1,0 +1,171 @@
+{
+  "aciklama": "Kayan pencere + birleştirme ablasyonu. AUC'lar eşiksiz; 0.50 sabit eşik argmax referansı; val-youden eşik sızıntısız.",
+  "step": 1,
+  "k_degerleri": [
+    3,
+    5
+  ],
+  "test_ornek_sayisi": 449,
+  "yontemler": [
+    {
+      "ad": "Orta-3 (temel)",
+      "roc_auc": 0.796643216080402,
+      "pr_auc": 0.7799572109715946,
+      "esik_0.50": {
+        "esik": 0.5,
+        "accuracy": 0.7238307349665924,
+        "duyarlilik": 0.6532663316582915,
+        "ozgulluk": 0.78,
+        "ppv_precision_abnormal": 0.7027027027027027,
+        "f1_abnormal": 0.6770833333333334,
+        "macro_f1": 0.7179190985732815,
+        "TN": 195,
+        "FP": 55,
+        "FN": 69,
+        "TP": 130
+      },
+      "val_youden_esik": 0.5169417262077332,
+      "esik_val_youden": {
+        "esik": 0.5169417262077332,
+        "accuracy": 0.7193763919821826,
+        "duyarlilik": 0.592964824120603,
+        "ozgulluk": 0.82,
+        "ppv_precision_abnormal": 0.7239263803680982,
+        "f1_abnormal": 0.6519337016574586,
+        "macro_f1": 0.7084295373958934,
+        "TN": 205,
+        "FP": 45,
+        "FN": 81,
+        "TP": 118
+      }
+    },
+    {
+      "ad": "Kayan: mean",
+      "roc_auc": 0.8013065326633166,
+      "pr_auc": 0.7839715995549776,
+      "esik_0.50": {
+        "esik": 0.5,
+        "accuracy": 0.7282850779510023,
+        "duyarlilik": 0.5125628140703518,
+        "ozgulluk": 0.9,
+        "ppv_precision_abnormal": 0.8031496062992126,
+        "f1_abnormal": 0.6257668711656441,
+        "macro_f1": 0.7062400789394654,
+        "TN": 225,
+        "FP": 25,
+        "FN": 97,
+        "TP": 102
+      },
+      "val_youden_esik": 0.4952044188976288,
+      "esik_val_youden": {
+        "esik": 0.4952044188976288,
+        "accuracy": 0.7260579064587973,
+        "duyarlilik": 0.5276381909547738,
+        "ozgulluk": 0.884,
+        "ppv_precision_abnormal": 0.7835820895522388,
+        "f1_abnormal": 0.6306306306306305,
+        "macro_f1": 0.7064657577931913,
+        "TN": 221,
+        "FP": 29,
+        "FN": 94,
+        "TP": 105
+      }
+    },
+    {
+      "ad": "Kayan: max",
+      "roc_auc": 0.7453668341708541,
+      "pr_auc": 0.7491337166182618,
+      "esik_0.50": {
+        "esik": 0.5,
+        "accuracy": 0.4521158129175947,
+        "duyarlilik": 1.0,
+        "ozgulluk": 0.016,
+        "ppv_precision_abnormal": 0.44719101123595506,
+        "f1_abnormal": 0.6180124223602484,
+        "macro_f1": 0.32475424267618724,
+        "TN": 4,
+        "FP": 246,
+        "FN": 0,
+        "TP": 199
+      },
+      "val_youden_esik": 0.6677451133728027,
+      "esik_val_youden": {
+        "esik": 0.6677451133728027,
+        "accuracy": 0.6815144766146993,
+        "duyarlilik": 0.5678391959798995,
+        "ozgulluk": 0.772,
+        "ppv_precision_abnormal": 0.6647058823529411,
+        "f1_abnormal": 0.6124661246612466,
+        "macro_f1": 0.6710723818013227,
+        "TN": 193,
+        "FP": 57,
+        "FN": 86,
+        "TP": 113
+      }
+    },
+    {
+      "ad": "Kayan: top-3 ort.",
+      "roc_auc": 0.7610854271356785,
+      "pr_auc": 0.7602260096152371,
+      "esik_0.50": {
+        "esik": 0.5,
+        "accuracy": 0.4521158129175947,
+        "duyarlilik": 0.9949748743718593,
+        "ozgulluk": 0.02,
+        "ppv_precision_abnormal": 0.4469525959367946,
+        "f1_abnormal": 0.616822429906542,
+        "macro_f1": 0.327942464953271,
+        "TN": 5,
+        "FP": 245,
+        "FN": 1,
+        "TP": 198
+      },
+      "val_youden_esik": 0.6626930236816406,
+      "esik_val_youden": {
+        "esik": 0.6626930236816406,
+        "accuracy": 0.7149220489977728,
+        "duyarlilik": 0.5125628140703518,
+        "ozgulluk": 0.876,
+        "ppv_precision_abnormal": 0.7669172932330827,
+        "f1_abnormal": 0.6144578313253011,
+        "macro_f1": 0.694154710715654,
+        "TN": 219,
+        "FP": 31,
+        "FN": 97,
+        "TP": 102
+      }
+    },
+    {
+      "ad": "Kayan: top-5 ort.",
+      "roc_auc": 0.7673969849246232,
+      "pr_auc": 0.7681911745614967,
+      "esik_0.50": {
+        "esik": 0.5,
+        "accuracy": 0.46325167037861914,
+        "duyarlilik": 0.9949748743718593,
+        "ozgulluk": 0.04,
+        "ppv_precision_abnormal": 0.4520547945205479,
+        "f1_abnormal": 0.6216640502354788,
+        "macro_f1": 0.3491462013629501,
+        "TN": 10,
+        "FP": 240,
+        "FN": 1,
+        "TP": 198
+      },
+      "val_youden_esik": 0.6384795904159546,
+      "esik_val_youden": {
+        "esik": 0.6384795904159546,
+        "accuracy": 0.7216035634743875,
+        "duyarlilik": 0.5728643216080402,
+        "ozgulluk": 0.84,
+        "ppv_precision_abnormal": 0.7402597402597403,
+        "f1_abnormal": 0.6458923512747876,
+        "macro_f1": 0.708267276554825,
+        "TN": 210,
+        "FP": 40,
+        "FN": 85,
+        "TP": 114
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+# Veri klasörünü tamamen engelle (içindeki devasa CSV, Parquet vb. dosyalar yüklenmesin)
+data/
+
+# Çevresel değişkenleri ve gizli şifreleri engelle (API anahtarları, veri tabanı şifreleri)
+.env
+
+# Python'ın otomatik ürettiği önbellek dosyaları (Gereksiz kalabalık yapmasınlar)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Sanal ortam klasörleri (Herkes kendi bilgisayarında kurmalı, GitHub'a yüklenmez)
+venv/
+.venv/
+env/
+
+# Jupyter Notebook'un otomatik kaydettiği kontrol noktaları
+.ipynb_checkpoints/
+
+# İşletim sistemine özel gereksiz dosyalar
+.DS_Store
+Thumbs.db
+
+# PyInstaller çıktıları (dağıtım zip'i GitHub Release eki olarak yayımlanır, depoya girmez)
+Akademik_Arastirma_Paketi/dagitim_exe/build/
+Akademik_Arastirma_Paketi/dagitim_exe/dist/
+Akademik_Arastirma_Paketi/dagitim_exe/*.zip
