@@ -19,7 +19,7 @@ Dağıtım boyutunu küçük tutmak için CUDA'lı `.venv312` DEĞİL, CPU-only 
 içeren ayrı bir ortam kullanılır (tek hacim çıkarımı CPU'da ~1 sn):
 
 ```powershell
-& "C:\Users\beren\AppData\Local\Programs\Python\Python312\python.exe" -m venv C:\Projelerim\Tubitak-Proje\.venv_exe
+& "C:\Users\kullanici-adi\AppData\Local\Programs\Python\Python312\python.exe" -m venv C:\Projelerim\Tubitak-Proje\.venv_exe
 & C:\Projelerim\Tubitak-Proje\.venv_exe\Scripts\python.exe -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 & C:\Projelerim\Tubitak-Proje\.venv_exe\Scripts\python.exe -m pip install streamlit matplotlib pillow numpy pyinstaller
 ```
