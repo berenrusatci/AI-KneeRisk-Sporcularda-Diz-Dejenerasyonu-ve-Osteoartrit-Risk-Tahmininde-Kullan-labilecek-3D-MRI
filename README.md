@@ -116,7 +116,9 @@ altındadır:
 | **Kesit derinliği analizi** | Merkezi kayan pencere, orta-3-kesit temeline göre daha iyi | [`dokumanlar/derinlik_analizi.md`](Akademik_Arastirma_Paketi/dokumanlar/derinlik_analizi.md) |
 | **Hiperparametre analizi** | Ampirik tarama ile seçimlerin gerekçelendirilmesi | [`dokumanlar/hiperparametre_analizi.md`](Akademik_Arastirma_Paketi/dokumanlar/hiperparametre_analizi.md) |
 | **Mimari ablasyonu** | ConvNeXt-Tiny + Focal + dengeleme en iyi kombinasyon | [`dokumanlar/ablasyon_analizi.md`](Akademik_Arastirma_Paketi/dokumanlar/ablasyon_analizi.md) |
-| **Açıklanabilirlik (Grad-CAM)** | Modelin odaklandığı bölgelerin ısı haritaları | [`sonuclar/gradcam_ornekleri/`](Akademik_Arastirma_Paketi/sonuclar/gradcam_ornekleri/) |
+| **İstatistiksel anlamlılık** | %95 GA (bootstrap) + Wilcoxon: ANA model tüm rakipleri anlamlı geçer | [`dokumanlar/istatistiksel_analiz.md`](Akademik_Arastirma_Paketi/dokumanlar/istatistiksel_analiz.md) |
+| **Risk skorlama (0-100)** | Düşük/Orta/Yüksek grupları; hasta oranı %13.6→%43.2→%88.9 (monoton) | [`dokumanlar/risk_skorlama.md`](Akademik_Arastirma_Paketi/dokumanlar/risk_skorlama.md) |
+| **Açıklanabilirlik (Grad-CAM + SHAP)** | İki XAI yöntemi aynı anatomik bölgeleri işaret eder | [`dokumanlar/aciklanabilirlik_xai.md`](Akademik_Arastirma_Paketi/dokumanlar/aciklanabilirlik_xai.md) |
 
 Hasta düzeyinde sızıntı denetimi: **Train 2082 hasta / Validation 445 hasta**
 arasındaki çapraz sorguda **kesişim kümesi 0 (sıfır)** çıkmıştır; başarı

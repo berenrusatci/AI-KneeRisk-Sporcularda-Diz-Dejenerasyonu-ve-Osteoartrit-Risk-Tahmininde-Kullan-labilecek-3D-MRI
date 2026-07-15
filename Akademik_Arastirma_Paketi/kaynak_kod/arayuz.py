@@ -179,6 +179,14 @@ def sonucu_goster(hacim_yolu, model, device, gercek_etiket=None, threshold=0.50,
         st.write("**Sınıf Olasılıkları**")
         st.write(f"- Normal (Sağlıklı): **%{r['probs']['normal']*100:.1f}**")
         st.write(f"- Abnormal (Hasta): **%{r['probs']['abnormal']*100:.1f}**")
+
+        # Risk skoru (0-100) ve grup (Düşük/Orta/Yüksek)
+        grup_emoji = {"Düşük": "🟢", "Orta": "🟡", "Yüksek": "🔴"}
+        st.metric("🧮 Dejenerasyon/OA Risk Skoru",
+                  f"{r['risk_skoru']}/100",
+                  help="Risk skoru = P(abnormal)×100. Gruplar: Düşük 0-33, Orta 34-66, Yüksek 67-100.")
+        st.markdown(f"**Risk grubu:** {grup_emoji.get(r['risk_grubu'], '')} "
+                    f"**{r['risk_grubu']}**")
         if mod != "Standart" and 0.5 > r["probs"]["abnormal"] >= threshold:
             st.info("ℹ️ Bu hacim standart eşikte (0.50) 'normal' sayılırdı; "
                     "düşük eşik sayesinde 'abnormal' olarak işaretlendi.")

@@ -83,6 +83,30 @@ IMAGENET_STD   = [0.229, 0.224, 0.225]
 DEFAULT_THRESHOLD = 0.5
 ESIK_AYAR_PATH = SONUCLAR_DIR / "esik_ayari.json"
 
+# ------------------------------------------------------------
+# Risk skorlama sistemi (0-100) ve düşük/orta/yüksek gruplama
+# ------------------------------------------------------------
+# Model, P(abnormal) olasılığını 0-100 arası bir "dejenerasyon/OA risk skoruna"
+# dönüştürür ve hastayı üç risk grubuna ayırır (başvuru Hedef 5). Skor, kalibre
+# edilmemiş olasılığın doğrudan yüzdesidir; gruplar eşit üçe bölmedir.
+RISK_GRUP_SINIRLARI = (33, 66)          # <=33 Düşük, 34-66 Orta, >=67 Yüksek
+RISK_GRUP_ADLARI = ("Düşük", "Orta", "Yüksek")
+
+
+def risk_skoru(p_abnormal):
+    """P(abnormal) olasılığını (0..1) 0-100 arası tamsayı risk skoruna çevirir."""
+    return int(round(float(p_abnormal) * 100))
+
+
+def risk_grubu(skor):
+    """0-100 risk skorunu Düşük (0-33) / Orta (34-66) / Yüksek (67-100) grubuna atar."""
+    dus, ort = RISK_GRUP_SINIRLARI
+    if skor <= dus:
+        return RISK_GRUP_ADLARI[0]
+    if skor <= ort:
+        return RISK_GRUP_ADLARI[1]
+    return RISK_GRUP_ADLARI[2]
+
 # Merkezi kayan pencere (tüm derinlik) önerilen ayarı — derinlik_tarama.py üretir.
 # Uç kesitler dağılım-dışı olduğundan pencereleme hacmin ORTADAKİ merkez_orani'lık
 # bölgesiyle sınırlanır; pencere skorları 'mean' ile birleştirilir. Bkz. derinlik_analizi.md.
@@ -343,6 +367,7 @@ def predict_volume(sample_path, model=None, device=None, transform=None, thresho
     probs = F.softmax(logits, dim=1)[0].cpu()
     p_abnormal = float(probs[1])
     pred_label = 1 if p_abnormal >= threshold else 0
+    skor = risk_skoru(p_abnormal)
 
     return {
         "pred_label": pred_label,
@@ -350,6 +375,8 @@ def predict_volume(sample_path, model=None, device=None, transform=None, thresho
         "probs": {CLASSES[0]: float(probs[0]), CLASSES[1]: p_abnormal},
         "confidence": float(probs[pred_label]),
         "threshold": float(threshold),
+        "risk_skoru": skor,
+        "risk_grubu": risk_grubu(skor),
         "slice_files": slice_files,
         "logits": logits[0].detach().cpu().tolist(),
     }
@@ -441,6 +468,7 @@ def predict_volume_sliding(sample_path, model=None, device=None, transform=None,
     pred_label = 1 if p_abnormal >= threshold else 0
     en_iyi = int(max(range(len(scores)), key=lambda j: scores[j])) if scores else 0
     best_window = windows[en_iyi] if windows else []
+    skor = risk_skoru(p_abnormal)
 
     return {
         "pred_label": pred_label,
@@ -448,6 +476,8 @@ def predict_volume_sliding(sample_path, model=None, device=None, transform=None,
         "probs": {CLASSES[0]: float(1.0 - p_abnormal), CLASSES[1]: float(p_abnormal)},
         "confidence": float(p_abnormal if pred_label == 1 else 1.0 - p_abnormal),
         "threshold": float(threshold),
+        "risk_skoru": skor,
+        "risk_grubu": risk_grubu(skor),
         "slice_files": best_window,
         "window_scores": [float(s) for s in scores],
         "method": method,

@@ -69,9 +69,20 @@
 
 ## Açıklanabilirlik
 
-Grad-CAM analizleri (`sonuclar/gradcam_ornekleri/`), modelin kararlarını verirken
-ağırlıklı olarak **diz ekleminin merkezî yapılarına** odaklandığını göstermektedir;
-bu, klinik olarak beklenen ilgi bölgesiyle tutarlıdır.
+İki tamamlayıcı XAI yöntemi kullanılır (bkz. `dokumanlar/aciklanabilirlik_xai.md`):
+- **Grad-CAM** (`sonuclar/gradcam_ornekleri/`): modelin kararlarını verirken
+  ağırlıklı olarak **diz ekleminin merkezî yapılarına** odaklandığını gösterir.
+- **SHAP** (`sonuclar/shap_ornekleri/`): piksel düzeyinde imzalı katkı haritaları;
+  Grad-CAM ile aynı anatomik bölgeleri işaret ederek bulguyu bağımsız doğrular.
+
+Her iki yöntem de klinik olarak beklenen ilgi bölgesiyle tutarlıdır.
+
+## Risk Skoru (0-100)
+
+Model, `P(abnormal)` çıktısını 0-100 arası bir risk skoruna çevirir ve hacmi
+**Düşük (0-33) / Orta (34-66) / Yüksek (67-100)** grubuna atar. Test setinde bu
+gruplardaki gerçek hasta oranı **%13.6 → %43.2 → %88.9** (monoton) olup skorlamanın
+ayrım gücünü doğrular (bkz. `dokumanlar/risk_skorlama.md`).
 
 ## Sınırlamalar ve Etik
 

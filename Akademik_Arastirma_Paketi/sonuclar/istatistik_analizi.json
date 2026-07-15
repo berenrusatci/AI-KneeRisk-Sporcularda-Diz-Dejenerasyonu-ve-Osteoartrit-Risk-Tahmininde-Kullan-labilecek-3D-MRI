@@ -1,0 +1,107 @@
+{
+  "aciklama": "AUC/Doğruluk %95 GA = stratified bootstrap. Karşılaştırma = paired bootstrap ΔAUC + Wilcoxon signed-rank (true-class prob).",
+  "bootstrap_tekrar": 2000,
+  "seed": 42,
+  "test_ornek_sayisi": 449,
+  "ana_model": "ConvNeXt-Tiny (Focal+Dengeli+Crop) [ANA]",
+  "model_guven_araliklari": {
+    "ConvNeXt-Tiny (Focal+Dengeli+Crop) [ANA]": {
+      "auc": 0.796643216080402,
+      "acc": 0.7238307349665924,
+      "auc_ci95": [
+        0.7511934673366835,
+        0.8368482412060301
+      ],
+      "acc_ci95": [
+        0.6815144766146993,
+        0.7683741648106904
+      ]
+    },
+    "ConvNeXt-Tiny (Focal, önceki)": {
+      "auc": 0.7612864321608039,
+      "acc": 0.6748329621380846,
+      "auc_ci95": [
+        0.7118341708542715,
+        0.8033994974874371
+      ],
+      "acc_ci95": [
+        0.6325167037861915,
+        0.7149220489977728
+      ]
+    },
+    "EfficientNet-B0 (CrossEntropy)": {
+      "auc": 0.6997185929648242,
+      "acc": 0.6592427616926503,
+      "auc_ci95": [
+        0.6487613065326634,
+        0.7507341708542714
+      ],
+      "acc_ci95": [
+        0.621380846325167,
+        0.6993318485523385
+      ]
+    },
+    "ResNet50 (Transfer, CrossEntropy)": {
+      "auc": 0.6584924623115578,
+      "acc": 0.5968819599109132,
+      "auc_ci95": [
+        0.6103924623115577,
+        0.706821608040201
+      ],
+      "acc_ci95": [
+        0.5545657015590201,
+        0.6414253897550112
+      ]
+    }
+  },
+  "eslestirilmis_karsilastirmalar": {
+    "ConvNeXt-Tiny (Focal+Dengeli+Crop) [ANA]  vs  ConvNeXt-Tiny (Focal, önceki)": {
+      "delta_auc_ana_eksi_diger": {
+        "delta_auc_ortalama": 0.03590951758793969,
+        "delta_auc_ci95": [
+          0.005140201005025206,
+          0.06762060301507536
+        ],
+        "bootstrap_p": 0.021
+      },
+      "wilcoxon_signed_rank_true_class_prob": {
+        "statistic": 36560.0,
+        "p_value": 3.944029156981807e-07,
+        "anlamli_0.05": true,
+        "aciklama": "Örnek-başı doğru sınıf olasılığı; ANA lehine yön medyan farkı pozitifse ANA daha iyi kalibre."
+      }
+    },
+    "ConvNeXt-Tiny (Focal+Dengeli+Crop) [ANA]  vs  EfficientNet-B0 (CrossEntropy)": {
+      "delta_auc_ana_eksi_diger": {
+        "delta_auc_ortalama": 0.09603435175879398,
+        "delta_auc_ci95": [
+          0.046065829145728814,
+          0.14681507537688437
+        ],
+        "bootstrap_p": 0.0
+      },
+      "wilcoxon_signed_rank_true_class_prob": {
+        "statistic": 40531.0,
+        "p_value": 0.00028539545988551067,
+        "anlamli_0.05": true,
+        "aciklama": "Örnek-başı doğru sınıf olasılığı; ANA lehine yön medyan farkı pozitifse ANA daha iyi kalibre."
+      }
+    },
+    "ConvNeXt-Tiny (Focal+Dengeli+Crop) [ANA]  vs  ResNet50 (Transfer, CrossEntropy)": {
+      "delta_auc_ana_eksi_diger": {
+        "delta_auc_ortalama": 0.13769340703517588,
+        "delta_auc_ci95": [
+          0.08391306532663327,
+          0.19109999999999996
+        ],
+        "bootstrap_p": 0.0
+      },
+      "wilcoxon_signed_rank_true_class_prob": {
+        "statistic": 44873.0,
+        "p_value": 0.04037222161533486,
+        "anlamli_0.05": true,
+        "aciklama": "Örnek-başı doğru sınıf olasılığı; ANA lehine yön medyan farkı pozitifse ANA daha iyi kalibre."
+      }
+    }
+  }
+}

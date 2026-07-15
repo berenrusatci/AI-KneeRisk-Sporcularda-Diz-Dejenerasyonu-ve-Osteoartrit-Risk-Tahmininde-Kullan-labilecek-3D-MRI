@@ -50,10 +50,13 @@ Akademik_Arastirma_Paketi/
 │   ├── veri_sizintisi_kontrolu.py# Veri sızıntısı (data leakage) kontrolü
 │   ├── hiperparametre_analizi.py # Hiperparametre analizi (+ ampirik tarama)
 │   ├── esik_analizi.py           # Karar eşiği ayarı — duyarlılık artırma
+│   ├── shap_analizi.py           # SHAP açıklanabilirlik (GradientExplainer)
+│   ├── risk_skorlama.py          # Risk skoru (0-100) + Düşük/Orta/Yüksek grupları
+│   ├── istatistik_analizi.py     # %95 GA (bootstrap) + Wilcoxon signed-rank
 │   ├── derinlik_analizi.py       # Kayan pencere + birleştirme (tek konfig ablasyon)
 │   ├── derinlik_tarama.py        # Kayan pencere konfig taraması (merkez×step×k)
-│   ├── tahmin.py                 # Komut satırı tek hacim çıkarımı (eşik destekli)
-│   └── arayuz.py                 # Streamlit demo arayüzü (eşik + kesit modlu)
+│   ├── tahmin.py                 # Komut satırı tek hacim çıkarımı (eşik + risk skorlu)
+│   └── arayuz.py                 # Streamlit demo arayüzü (eşik + kesit + risk skorlu)
 ├── sonuclar/                     # Üretilen tüm çıktılar (metrikler, grafikler)
 │   ├── metrikler.json / siniflandirma_raporu.txt
 │   ├── karmasiklik_matrisi.png / roc_egrisi.png / pr_egrisi.png
@@ -69,7 +72,11 @@ Akademik_Arastirma_Paketi/
     ├── ablasyon_analizi.md
     ├── hiperparametre_analizi.md
     ├── esik_analizi.md
-    └── gap_analizi.md
+    ├── gap_analizi.md
+    ├── derinlik_analizi.md
+    ├── aciklanabilirlik_xai.md   # Grad-CAM + SHAP
+    ├── risk_skorlama.md          # Risk skoru (0-100) + gruplar
+    └── istatistiksel_analiz.md   # %95 GA + Wilcoxon
 ```
 
 ---
@@ -107,9 +114,12 @@ Aşağıdaki komutlar `kaynak_kod/` klasöründen çalıştırılır. `PY` kısa
 | GAP / overfitting analizi | `PY gap_overfitting_analizi.py` |
 | Model karşılaştırma (ablasyon) | `PY model_karsilastirma.py` |
 | Grad-CAM örnekleri | `PY gradcam.py --ornek-sayisi 3` |
+| **SHAP açıklanabilirlik örnekleri** | `PY shap_analizi.py --ornek-sayisi 3` |
+| **Risk skorlama (0-100) + grup doğrulaması** | `PY risk_skorlama.py` |
+| **İstatistiksel anlamlılık + %95 GA** | `PY istatistik_analizi.py` |
 | Hiperparametre analizi (+ ampirik tarama) | `PY hiperparametre_analizi.py --tara` |
 | **Karar eşiği analizi (duyarlılık artırma)** | `PY esik_analizi.py` |
-| Tek hacim tahmini (CLI) | `PY tahmin.py "<hacim_klasörü_yolu>"` |
+| Tek hacim tahmini (CLI, risk skorlu) | `PY tahmin.py "<hacim_klasörü_yolu>"` |
 | Tek hacim, yüksek duyarlılık | `PY tahmin.py "<hacim>" --yuksek-duyarlilik` |
 
 ### Demo Arayüzü (Streamlit)

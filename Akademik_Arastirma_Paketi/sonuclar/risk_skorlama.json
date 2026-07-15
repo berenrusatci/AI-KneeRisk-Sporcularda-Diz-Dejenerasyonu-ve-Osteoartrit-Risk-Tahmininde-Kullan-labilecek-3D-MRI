@@ -1,0 +1,33 @@
+{
+  "aciklama": "Risk skoru = round(P(abnormal)*100). Gruplar: Düşük 0-33, Orta 34-66, Yüksek 67-100. Metrikler bağımsız test setinde.",
+  "grup_sinirlari": {
+    "dusuk_ust": 33,
+    "orta_ust": 66
+  },
+  "test_ornek_sayisi": 449,
+  "gruplar": [
+    {
+      "grup": "Düşük",
+      "adet": 66,
+      "hasta_sayisi": 9,
+      "gercek_hasta_orani": 0.13636363636363635,
+      "ortalama_skor": 29.833333333333332
+    },
+    {
+      "grup": "Orta",
+      "adet": 329,
+      "hasta_sayisi": 142,
+      "gercek_hasta_orani": 0.4316109422492401,
+      "ortalama_skor": 47.78115501519757
+    },
+    {
+      "grup": "Yüksek",
+      "adet": 54,
+      "hasta_sayisi": 48,
+      "gercek_hasta_orani": 0.8888888888888888,
+      "ortalama_skor": 76.16666666666667
+    }
+  ],
+  "monotonluk_gecerli": true,
+  "skor_etiket_korelasyonu_pearson": 0.5193977745154564
+}

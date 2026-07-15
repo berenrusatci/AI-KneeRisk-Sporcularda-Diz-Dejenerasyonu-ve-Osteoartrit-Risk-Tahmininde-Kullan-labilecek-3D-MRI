@@ -52,6 +52,7 @@ def main():
     print(f"Güven   : %{r['confidence']*100:.2f}")
     print(f"Olasılıklar -> normal: %{r['probs']['normal']*100:.2f} | "
           f"abnormal: %{r['probs']['abnormal']*100:.2f}")
+    print(f"Risk Skoru : {r['risk_skoru']}/100  ->  {r['risk_grubu']} risk grubu")
     print(f"Kullanılan kesitler: {[os.path.basename(p) for p in r['slice_files']]}")
     print("=" * 50)
 
